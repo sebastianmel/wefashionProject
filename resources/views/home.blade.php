@@ -25,7 +25,7 @@
     
     <div class='mt-4'>
         <div class="d-flex justify-content-between mb-2">
-
+        {{ $products->links() }}
         <div><a href="#" class="btn btn-primary">Add product</a></div>
         </div>
         
@@ -46,13 +46,13 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @foreach($products as $product)
                 <tr>
-                    <th scope="row">#1</th>
-                    <td>nom</td>
-                    <td>category</td>
-                    <td>price</td>
-                    <td>state</td>
+                    <th scope="row">{{$loop->index+1}}</th>
+                    <td>{{$product->nom}}</td>
+                    <td>{{$product->category->libelle}}</td>
+                    <td>{{$product->price}} $</td>
+                    <td>{{$product->state->libelle}}</td>
                     <td>
                         <a href="#" class="btn btn-info">Edit</a>
                         <a href="#" class="btn btn-danger">Delete</a>
@@ -64,8 +64,13 @@
 
                     </td>
                 </tr>
+                @endforeach
               
             </tbody>
+            
+
+                
+            
             
         </table>
         

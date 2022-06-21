@@ -20,7 +20,7 @@ class ProductFactory extends Factory
     {
         return [
             //generate random informations for product 
-            'name' => $this->faker->Lastname(),
+            'nom' => $this->faker->Lastname(),
             'description' => $this->faker->text($maxNbChars = 200),
             'price' => $this->faker->biasedNumberBetween($min = 10, $max = 20, $function = 'sqrt'),
             'picture' => $this->faker->imageUrl($width = 640, $height = 480),
