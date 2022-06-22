@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $fillable = ["nom","description","state_id","category_id","price","picture"];
 
     public function state(){
        return $this->belongsTo(State::class);
@@ -20,4 +21,11 @@ class Product extends Model
     public function category(){
        return $this->belongsTo(Category::class);
     }
+    public function price(){
+       return $this->belongsTo(Price::class);
+    }
+    public function picture(){
+       return $this->belongsTo(Price::class);
+    }
+
 }

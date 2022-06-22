@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/create', [App\Http\Controllers\HomeController::class, 'create'])->name('product.create');
 Route::get('/categoryAdmin', [App\Http\Controllers\HomeController::class, 'index1'])->name('categoryAdmin');
+Route::post('/home/create', [App\Http\Controllers\HomeController::class, 'store'])->name('product.add');
