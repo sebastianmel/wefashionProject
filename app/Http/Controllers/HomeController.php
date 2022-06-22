@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\State;
+use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,11 +28,21 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::orderBy("nom","asc")->paginate(15);
+        $categories = Category::all();
         return view('home', compact('products'));
     }
 
     public function index1()
     {
         return view('categoryAdmin');
+    }
+
+    public function create()
+    {
+        $states = State::all();
+        $categories = Category::all();
+        
+
+        return view("createProduct", compact("states","categories"));
     }
 }

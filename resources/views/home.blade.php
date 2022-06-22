@@ -26,7 +26,7 @@
     <div class='mt-4'>
         <div class="d-flex justify-content-between mb-2">
         {{ $products->links() }}
-        <div><a href="#" class="btn btn-primary">Add product</a></div>
+        <div><a href="{{route('product.create')}}" class="btn btn-primary">Add product</a></div>
         </div>
         
         @if(session()->has("successDelete")) 
@@ -47,6 +47,7 @@
             </thead>
             <tbody>
                 @foreach($products as $product)
+                <!-- @dump($product->categories) -->
                 <tr>
                     <th scope="row">{{$loop->index+1}}</th>
                     <td>{{$product->nom}}</td>

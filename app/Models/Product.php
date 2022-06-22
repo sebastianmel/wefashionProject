@@ -13,9 +13,9 @@ class Product extends Model
        return $this->belongsTo(State::class);
     }
 
-    public function state2(){
-       return $this->belongsTo(State2::class);
-    }
+   //  public function state2(){
+   //     return $this->belongsTo(State2::class);
+   //  }
 
     public function category(){
        return $this->belongsTo(Category::class);
