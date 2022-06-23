@@ -32,10 +32,17 @@ class HomeController extends Controller
         $categories = Category::all();
         return view('home', compact('products'));
     }
+    public function firstP()
+    {
+        $products = Product::orderBy("nom", "asc")->paginate(6);
+        $categories = Category::all();
+        return view('first', compact('products'));
+    }
 
     public function index1()
     {
-        return view('categoryAdmin');
+        $categories = Category::orderBy("libelle", "asc")->paginate(15);
+        return view('categoryAdmin',compact('categories'));
     }
 
     public function create()
@@ -55,12 +62,12 @@ class HomeController extends Controller
             "price"=>"required",
             "state_id" => "required",
             "category_id" => "required",
-            "picture" => "required|image|mimes:jpg,png,jpeg,gif,svg|max:2048",
+            "picture" => "required",
         ]);
   
         /* Store $imageName name in DATABASE from HERE */
     
-       
+    //    $request->picture->store('public');
 
 
         // dd($request->picture);

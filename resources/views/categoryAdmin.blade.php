@@ -37,34 +37,30 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">nom</th>
-                    <th scope="col">category</th>
-                    <th scope="col">price</th>
-                    <th scope="col">state</th>
+                    <th scope="col">#</th>                    
+                    <th scope="col">category</th>                                       
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                
+            @foreach($categories as $category)
                 <tr>
-                    <th scope="row">#1</th>
-                    <td>nom</td>
-                    <td>category</td>
-                    <td>price</td>
-                    <td>state</td>
+                    <th scope="row">{{$loop->index+1}}</th>                  
+                    <td>{{$category->libelle}}</td>
+                    
                     <td>
                         <a href="#" class="btn btn-info">Edit</a>
                         <a href="#" class="btn btn-danger">Delete</a>
-
+                        
                         <form id="" action="" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="delete">
                         </form>
-
+                        
                     </td>
                 </tr>
-              
+            @endforeach        
+                
             </tbody>
             
         </table>

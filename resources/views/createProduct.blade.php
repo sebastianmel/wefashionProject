@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Product picture</label>
+                    <label for="formFile" class="form-label">Product picture : </label>
                     <input class="form-control" type="file" id="formFile" name="picture" id="picture">
                 </div>
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
