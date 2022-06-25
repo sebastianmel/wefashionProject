@@ -15,6 +15,7 @@ class States2TableSeeder extends Seeder
      */
     public function run()
     {
+        echo 'totot';
         //Stats of products
         DB::table('states2')->insert([
             ["libelle"=>"nomal Price"],

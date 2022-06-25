@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("nom");
             $table->text("description");
             $table->string("price");
-            $table->string("picture");
+            $table->string("picture")->nullable();
             $table->foreignId("category_id")->constrained("categories");
             $table->foreignId("state_id")->constrained("states");
             $table->foreignId("state2_id")->constrained("states2");

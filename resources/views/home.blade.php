@@ -55,11 +55,11 @@
                     <td>{{$product->price}} $</td>
                     <td>{{$product->state->libelle}}</td>
                     <td>
-                        <a href="#" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="{{route('product.edit',['product'=>$product->id])}}" class="btn btn-info">Edit</a>
+                        <a href="#" class="btn btn-danger" onclick="if(confirm('You really want to delete the product ?')){document.getElementById('form-{{$product->id}}').submit() }">Delete</a>
 
-                        <form id="" action="" method="post">
-                            @csrf
+                        <form  id="form-{{$product->id}}" action="{{route('product.del',['product'=>$product->id])}}" method="post">
+                            @csrf                          
                             <input type="hidden" name="_method" value="delete">
                         </form>
 

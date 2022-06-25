@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
+            $table->string('name_picture');
+            $table->foreignId("product_id")->constrained("products");
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -26,6 +29,11 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table("pictures", function(Blueprint $table){
+            $table->dropForeign("product_id");
+            
+        });
+
         Schema::dropIfExists('pictures');
     }
 };

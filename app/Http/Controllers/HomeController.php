@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Picture;
 use App\Models\Product;
 use App\Models\State;
+use App\Models\State2;
 use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 
@@ -28,16 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy("nom", "asc")->paginate(15);
+        $products = Product::orderBy("id", "asc")->paginate(15);
         $categories = Category::all();
         return view('home', compact('products'));
     }
-    public function firstP()
-    {
-        $products = Product::orderBy("nom", "asc")->paginate(6);
-        $categories = Category::all();
-        return view('first', compact('products'));
-    }
+    
 
     public function index1()
     {
@@ -49,10 +45,20 @@ class HomeController extends Controller
     {
         $states = State::all();
         $categories = Category::all();
+        $states2 = State2::all();
 
 
-        return view("createProduct", compact("states","categories"));
+        return view("createProduct", compact("states","categories","states2"));
     }
+
+    public function edit(Product $product){
+        $states = State::all();
+        $states2 = State2::all();
+        $categories = Category::all();
+        return view("editProduct", compact("states","states2","categories","product"));
+    }
+
+     // Add function for products
 
     public function store(Request $request)
     {
@@ -62,17 +68,70 @@ class HomeController extends Controller
             "price"=>"required",
             "state_id" => "required",
             "category_id" => "required",
-            "picture" => "required",
+            "picture" => 'required|image|max:2048',
+            "state2_id" => "required",
+            "alphanum"=>"required"
         ]);
-  
-        /* Store $imageName name in DATABASE from HERE */
-    
-    //    $request->picture->store('public');
+        
 
+        $input =$request->all();
 
-        // dd($request->picture);
+        if($picture= $request->file('picture')){
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis').".".$picture->getClientOriginalExtension();
+            $picture->move($destinationPath,$profileImage);
+            $input['picture'] = "$profileImage";
+        }
+        
+        
+        
+        
+        // $product = Product::create([
+            //     "nom"=>$request->nom,
+            //     "description"=>$request->description,
+            //     "price"=>$request->price,
+            //     "state_id"=>$request->state_id,
+            //     "category_id"=>$request->category_id,
+            //     "picture"=>$request->picture,
+            //     "state2_id" => $request->state2_id,
+            //     "alphanum" => substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 6),
+            
+            // ]);
+            
+            
+            Product::create($input);
+            return back()->with("sucess", "Product was create with success!");
+
+        
+        
+        
+        // // dd($request->picture);
         // Product::create($request->all());
-        Product::create([
+        // Product::create([
+        //     "nom"=>$request->nom,
+        //     "description"=>$request->description,
+        //     "price"=>$request->price,
+        //     "state_id"=>$request->state_id,
+        //     "category"=>$request->category_id,
+        //     "picture"=>$request->picture,
+        // ]);
+    }
+    // Update function 
+    public function update(Request $request, Product $product){
+        $request->validate([
+            "nom" => "required",
+            "description" => "required",
+            "price"=>"required",
+            "state_id" => "required",
+            "category_id" => "required",
+            "picture" => 'required|image|max:2048',
+            "state2_id" => "required",
+            "alphanum"=>"required"
+        ]);
+
+        
+
+        $product->update([
             "nom"=>$request->nom,
             "description"=>$request->description,
             "price"=>$request->price,
@@ -81,6 +140,14 @@ class HomeController extends Controller
             "picture"=>$request->picture,
         ]);
 
-        return back()->with("sucess", "Product was create with success!");
+        return back()->with('success','Product mis a jour avec succè!');
+    }
+    // Delete function 
+
+    public function delete(Product $product){
+        $nom_complet = $product->nom ;
+        $product->delete();
+
+        return back()->with("successDelete", "Product '$nom_complet' delete successfully!");
     }
 }

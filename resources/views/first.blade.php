@@ -23,10 +23,13 @@ Browse the items you need for your store:</p>
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      @foreach($products as $product)
+        @foreach($products as $product)
         <div class="col">
           <div class="card shadow-sm">
-            <img src="{{$product->picture}}" alt="">
+    
+          <img class="picture" src="/images/{{$product->picture}}" alt="image"> 
+            
+          
             <div class="card-body">
               <p class="card-text">{{$product->nom}}</p><p class="card-text"> {{$product->price}} $</p>
               <p class="card-text">{{$product->description}}</p>
@@ -42,6 +45,7 @@ Browse the items you need for your store:</p>
         </div>
         @endforeach 
       </div>
+      <hr>
       <div class="d-flex justify-content-center mb-2">
       {{ $products->links() }}
       </div>

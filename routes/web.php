@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FirstController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -18,11 +19,14 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', function () {
 //     return view('first');
 // });
-Route::get('/', [HomeController::class, 'firstP']);
+Route::get('/', [FirstController::class, 'firstP']);
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/home/create', [App\Http\Controllers\HomeController::class, 'create'])->name('product.create');
-Route::get('/categoryAdmin', [App\Http\Controllers\HomeController::class, 'index1'])->name('categoryAdmin');
-Route::post('/home/create', [App\Http\Controllers\HomeController::class, 'store'])->name('product.add');
+Route::get('/home/create', [HomeController::class, 'create'])->name('product.create');
+Route::get('/categoryAdmin', [HomeController::class, 'index1'])->name('categoryAdmin');
+Route::post('/home/create', [HomeController::class, 'store'])->name('product.add');
+Route::get('/home/{product}', [HomeController::class, 'edit'])->name('product.edit');
+Route::delete('/home/{product}', [HomeController::class, 'delete'])->name('product.del');
+Route::put('/home/{product}', [HomeController::class, 'update'])->name('product.update');
