@@ -30,11 +30,11 @@ Browse the items you need for your store:</p>
           <img class="picture" src="/images/{{$product->picture}}" alt="image"> 
             
           
-            <div class="card-body">
-              <p class="card-text">{{$product->nom}}</p><p class="card-text"> {{$product->price}} $</p>
-              <p class="card-text">{{$product->description}}</p>
+            <div class="card-body" style="text-align: center;">
+              <p class="card-text">{{$product->nom}}</p><p class="card-text">Price : {{$product->price}} €</p>
+              <small class="card-text">{{$product->description}}</small>
               
-              <div class="d-flex justify-content-between align-items-center">
+              <div class=" justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Add card</button>

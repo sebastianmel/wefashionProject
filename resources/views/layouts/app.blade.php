@@ -35,10 +35,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/categoryAdmin">Category</a>
+                            <a class="nav-link" href="{{ route('categoryAdmin') }}">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">Product</a>
+                            <a class="nav-link" href="/admin">Product</a>
                         </li>
                     </ul>
 

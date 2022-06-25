@@ -26,7 +26,7 @@
     <div class='mt-4'>
         <div class="d-flex justify-content-between mb-2">
 
-        <div><a href="#" class="btn btn-primary">Add product</a></div>
+        <div><a href="{{route('product.create.category')}}" class="btn btn-primary">Add category</a></div>
         </div>
         
         @if(session()->has("successDelete")) 
@@ -49,11 +49,12 @@
                     <td>{{$category->libelle}}</td>
                     
                     <td>
-                        <a href="#" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                        <a href="" class="btn btn-info">Edit</a>
+                        <a href="#" class="btn btn-danger" onclick="if(confirm('Are you sure you want to delete the category ?')){document.getElementById('form-{{$category->id}}').submit()}">Delete</a>
                         
-                        <form id="" action="" method="post">
+                        <form id="form-{{$category->id}}" action="{{route('category.del', ['category'=>$category->id])}}" method="post">
                             @csrf
+
                             <input type="hidden" name="_method" value="delete">
                         </form>
                         

@@ -10,7 +10,7 @@ use App\Models\State2;
 use Database\Seeders\CategoriesTableSeeder;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         $products = Product::orderBy("id", "asc")->paginate(15);
         $categories = Category::all();
-        return view('home', compact('products'));
+        return view('admin', compact('products'));
     }
     
 
@@ -51,14 +51,25 @@ class HomeController extends Controller
         return view("createProduct", compact("states","categories","states2"));
     }
 
+    public function create1()
+    {
+        
+        $categories = Category::all();
+        
+
+
+        return view("createCategory", compact("categories"));
+    }
+    // Edit Function for Product & Category
     public function edit(Product $product){
         $states = State::all();
         $states2 = State2::all();
         $categories = Category::all();
         return view("editProduct", compact("states","states2","categories","product"));
     }
+ 
 
-     // Add function for products
+     // Add function for products & category
 
     public function store(Request $request)
     {
@@ -116,7 +127,34 @@ class HomeController extends Controller
         //     "picture"=>$request->picture,
         // ]);
     }
-    // Update function 
+
+    public function store1(Request $request)
+    {
+        $request->validate([
+            "libelle" => "required",
+            
+        ]);
+    
+        $product = Category::create([
+                "libelle"=>$request->libelle,
+                
+            
+            ]);
+            
+            
+            
+            return back()->with("sucess", "Category was create with success!");
+            
+       
+    }
+
+
+
+
+
+
+    // Update function for Product & Category
+    
     public function update(Request $request, Product $product){
         $request->validate([
             "nom" => "required",
@@ -137,11 +175,13 @@ class HomeController extends Controller
             "price"=>$request->price,
             "state_id"=>$request->state_id,
             "category"=>$request->category_id,
-            "picture"=>$request->picture,
+            "picture"=>$request->product->picture,
         ]);
 
         return back()->with('success','Product mis a jour avec succè!');
     }
+
+    
     // Delete function 
 
     public function delete(Product $product){
@@ -149,5 +189,13 @@ class HomeController extends Controller
         $product->delete();
 
         return back()->with("successDelete", "Product '$nom_complet' delete successfully!");
+    }
+   
+    
+    public function deleteCategory(Category $category){
+        $nom_complet = $category->libelle;
+        $category->delete();
+
+        return back()->with("successDelete", "Category '$nom_complet' delete successfully!");
     }
 }

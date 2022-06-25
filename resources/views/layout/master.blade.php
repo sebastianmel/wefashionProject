@@ -107,7 +107,7 @@
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/admin') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -133,8 +133,8 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>
+    <p class="mb-1">&copy; sebastian meliot</p>
+    <p class="mb-0">WeFASHION <a href="/">Visit the homepage</a> or read our <a href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
 

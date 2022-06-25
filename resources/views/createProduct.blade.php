@@ -63,7 +63,7 @@
 
                 <div class="mb-3 ">
                     <label for="exampleInputPassword2" class="form-label">State 1 : </label>
-                    <select class="form-control" name="state_id">
+                    <select class="form-control" name="state_id" required>
                         <option value=""></option>
                         @foreach($states as $state)
                         <option value="{{$state->id}}">{{$state->libelle}}</option>
@@ -73,7 +73,7 @@
 
                 <div class="mb-3 ">
                     <label for="exampleInputPassword2" class="form-label">State 2 : </label>
-                    <select class="form-control" name="state2_id">
+                    <select class="form-control" name="state2_id" required>
                         <option value=""></option>
                         @foreach($states2 as $state2)
                         <option value="{{$state2->id}}">{{$state2->libelle}}</option>
@@ -84,7 +84,7 @@
 
                 <div class="mb-3 ">
                     <label for="exampleInputPassword2" class="form-label">Category : </label>
-                    <select class="form-control" name="category_id">
+                    <select class="form-control" name="category_id" required>
                         <option value=""></option>
                         @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->libelle}}</option>
@@ -94,10 +94,10 @@
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Product picture : </label>
-                    <input class="form-control" type="file" id="formFile" name="picture" id="picture">
+                    <input class="form-control" type="file" id="formFile" name="picture" id="picture" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <a href="{{route('home')}}" class="btn btn-danger">Annuler</a>
+                <a href="{{route('admin')}}" class="btn btn-danger">Annuler</a>
             </form>
 
         </div>

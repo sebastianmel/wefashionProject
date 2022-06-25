@@ -111,7 +111,7 @@
                     <input class="form-control" type="file" id="formFile" name="picture" id="picture">
                 </div>
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <a href="{{route('home')}}" class="btn btn-danger">Annuler</a>
+                <a href="{{route('admin')}}" class="btn btn-danger">Annuler</a>
             </form>
 
         </div>

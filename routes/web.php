@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FirstController;
+// use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -23,10 +24,20 @@ Route::get('/', [FirstController::class, 'firstP']);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/home/create', [HomeController::class, 'create'])->name('product.create');
-Route::get('/categoryAdmin', [HomeController::class, 'index1'])->name('categoryAdmin');
-Route::post('/home/create', [HomeController::class, 'store'])->name('product.add');
-Route::get('/home/{product}', [HomeController::class, 'edit'])->name('product.edit');
-Route::delete('/home/{product}', [HomeController::class, 'delete'])->name('product.del');
-Route::put('/home/{product}', [HomeController::class, 'update'])->name('product.update');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/category', [AdminController::class, 'index1'])->name('categoryAdmin');
+Route::get('/admin/create', [AdminController::class, 'create'])->name('product.create');
+Route::get('/admin/create-category', [AdminController::class, 'create1'])->name('product.create.category');
+Route::post('/admin/create', [AdminController::class, 'store'])->name('product.add');
+Route::post('/admin/create-category', [AdminController::class, 'store1'])->name('category.add');
+Route::get('/admin/{product}', [AdminController::class, 'edit'])->name('product.edit');
+Route::put('/admin/{product}', [AdminController::class, 'update'])->name('product.update');
+Route::delete('/admin/{product}', [AdminController::class, 'delete'])->name('product.del');
+Route::delete('/admin/{category}', [AdminController::class, 'deleteCategory'])->name('category.del');
+
+
+
+
+
+
+
