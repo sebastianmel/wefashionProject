@@ -5,19 +5,7 @@
 
 @section("contenu")
 
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Fashion STORE</h1>
-            <p class="lead text-muted">Discover all the new arrivals in the Spring-Summer 2022 women's ready-to-wear collection.
-                Browse the items you need for your store:</p>
-            <p>
 
-                <a href="#" class="btn btn-secondary my-2">Show more</a>
-            </p>
-        </div>
-    </div>
-</section>
 
 <div class="album py-5 bg-light">
     <div class="container">
@@ -29,9 +17,9 @@
 
 
                 <section id="productTargeted">
-                    <!-- Carousel -->
+                    <!-- image -->
                     <div class="container">
-                        <img class="img" src="/images/{{$product->picture}}"  alt="image">
+                        <img class="img" src="/images/{{$product->picture}}" alt="image">
 
 
                     </div>
@@ -39,8 +27,10 @@
 
                     <!-- Orders details  -->
                     <div class="details">
+                    
+                    
                         <p id="distributor">
-                            <b>Style : {{$product->category->libelle}}</b>
+                            <b style="color: hsl(155, 66%, 70%);">Style : {{$product->category->libelle}}</b>
                         </p>
 
                         <h1 id="modelName"><b>{{$product->nom}}</b></h1>
@@ -54,7 +44,7 @@
 
                         <!-- Price -->
 
-                        <b>
+                        <b class="infoPrice">
                             <span id="actualPrice"><br>Price : {{$product->price}} €</span>
                             <span id="reduction">50%</span> <br>
                             <strike>
@@ -64,7 +54,7 @@
                         </b>
                         <section class="buttonGroup"><b>
 
-                                <!-- Number of orders -->
+                                <!-- size -->
                                 <div id="compt">
 
                                     <label for="inputState">Size</label>

@@ -19,10 +19,10 @@
             </div>
         </div>
     </div>
-    
+
     <div class="my-3 p-3 bg-body rounded shadow-sm">
         <h3 class="border-bottom pb-2 mb-4">Update of the product : </h3>
-        
+
         <div class='mt-4'>
             @if(session()->has("success"))
             <div class="alert alert-success">
@@ -60,7 +60,7 @@
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Price ($): </label>
-                    <input type="number" class="form-control"  name="price" value="{{$product->price}}" required >
+                    <input type="number" class="form-control" name="price" value="{{$product->price}}" required>
                 </div>
 
                 <div class="mb-3 ">
@@ -90,7 +90,7 @@
                         @endforeach
                     </select>
                 </div>
-                
+
 
                 <div class="mb-3 ">
                     <label for="exampleInputPassword2" class="form-label">Category : </label>

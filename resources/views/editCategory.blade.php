@@ -19,10 +19,10 @@
             </div>
         </div>
     </div>
-    
+
     <div class="my-3 p-3 bg-body rounded shadow-sm">
         <h3 class="border-bottom pb-2 mb-4">Creation of your Product : </h3>
-        
+
         <div class='mt-4'>
             @if(session()->has("success"))
             <div class="alert alert-success">
@@ -40,16 +40,17 @@
             </div>
             @endif
 
-            <form method="post" action="" enctype="multipart/form-data">
+            <form method="post" action="{{route('category.update',['category'=>$category->id])}}" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="_method" value="put">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Category name : </label>
-                    <input type="text" class="form-control" name="libelle" required>
+                    <input type="text" class="form-control" name="libelle" value="{{$category->libelle}}" required>
 
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <a href="{{route('admin')}}" class="btn btn-danger">Annuler</a>
+                <a href="{{route('categoryAdmin')}}" class="btn btn-danger">Annuler</a>
             </form>
 
         </div>

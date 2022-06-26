@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FirstController;
-// use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -43,14 +42,8 @@ Route::post('/admin/create', [AdminController::class, 'store'])->name('product.a
 Route::post('/admin/create-category', [AdminController::class, 'store1'])->name('category.add');
 
 
-Route::get('/admin/{product}', [AdminController::class, 'edit'])->name('product.edit');
-Route::put('/admin/{product}', [AdminController::class, 'update'])->name('product.update');
+Route::get('/admin/edite/{product}', [AdminController::class, 'edit'])->name('product.edit');
+Route::put('/admin/update{product}', [AdminController::class, 'update'])->name('product.update');
 
-
-
-
-
-
-
-
-
+Route::get('/admin/edite/category/{category}', [AdminController::class, 'edit1'])->name('category.edit');
+Route::put('/admin/update/category{category}', [AdminController::class, 'update1'])->name('category.update');

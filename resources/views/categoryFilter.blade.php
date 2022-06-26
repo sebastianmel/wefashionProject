@@ -20,12 +20,13 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
-
+    
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-            
+
             @foreach($products as $product)
             <div class="col">
+            
                 <div class="card shadow-sm">
 
                     <img class="picture" src="/images/{{$product->picture}}" alt="image">
@@ -48,8 +49,8 @@
         </div>
         <hr>
         <div class="d-flex justify-content-center mb-2">
-      {{ $products->links("pagination::bootstrap-4") }}
-    </div>
+            {{ $products->links("pagination::bootstrap-4") }}
+        </div>
     </div>
 </div>
 

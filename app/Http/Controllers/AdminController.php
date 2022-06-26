@@ -63,6 +63,12 @@ class AdminController extends Controller
         $categories = Category::all();
         return view("editProduct", compact("states","states2","categories","product"));
     }
+    public function edit1(Category $category){
+        $states = State::all();
+        $states2 = State2::all();
+        $categories = Category::all();
+        return view("editCategory", compact("states","states2","categories",'category'));
+    }
  
 
      // Add function for products & category
@@ -175,6 +181,20 @@ class AdminController extends Controller
         ]);
 
         return back()->with('success','Product mis a jour avec succè!');
+    }
+
+    public function update1(Request $request, Category $category){
+        $request->validate([
+            "libelle" => "required",
+            
+        ]);
+        
+
+        $category->update([
+            "libelle"=>$request->libelle,
+        ]);
+
+        return back()->with('success','category mis a jour avec succè!');
     }
 
     
