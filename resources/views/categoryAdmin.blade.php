@@ -29,9 +29,9 @@
         <div><a href="{{route('product.create.category')}}" class="btn btn-primary">Add category</a></div>
         </div>
         
-        @if(session()->has("successDelete")) 
+        @if(session()->has("successDelete1")) 
         <div class="alert alert-success">
-            <p>{{session()->get('successDelete')}}</p>
+            <p>{{session()->get('successDelete1')}}</p>
         </div>
         @endif
         <table class="table table-bordered table-hover">

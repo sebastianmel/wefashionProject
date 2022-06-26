@@ -192,6 +192,6 @@ class AdminController extends Controller
         $nom_complet = $category->libelle;
         $category->delete();
 
-        return back()->with("successDelete", "Category '$nom_complet' delete successfully!");
+        return back()->with("successDelete1", "Category '$nom_complet' delete successfully!");
     }
 }

@@ -31,7 +31,7 @@
                 <section id="productTargeted">
                     <!-- Carousel -->
                     <div class="container">
-                        <img class="picture" src="/images/{{$product->picture}}"  alt="image">
+                        <img class="img" src="/images/{{$product->picture}}"  alt="image">
 
 
                     </div>
@@ -58,7 +58,7 @@
                             <span id="actualPrice"><br>Price : {{$product->price}} €</span>
                             <span id="reduction">50%</span> <br>
                             <strike>
-                                $250.00
+                                20000050.00€
                             </strike><br><br>
 
                         </b>

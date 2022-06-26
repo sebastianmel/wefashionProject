@@ -123,6 +123,12 @@ h1{
     border-radius: 15px;
     background-color:hsl(158, 66%, 95%);
 }
+.album{
+  width: 100%;
+}
+.img{
+  width: 50%;
+}
 
 strike{
  color: hsl(219, 9%, 45%);
@@ -143,8 +149,10 @@ color:hsl(26, 100%, 55%) ;
 }
 #compt{
   background-color: whitesmoke;
-  width: auto;
+  width:100px;
+  margin: 20px;
   border-radius: 10px;
+  
 }
 .buttonGroup{
     display: flex;
@@ -261,9 +269,10 @@ color:hsl(26, 100%, 55%) ;
       width: 260px;
       
   }
-  .carousel__slide div {
-      height: 250px;
+  .picture img{
+    width: 410px;
   }
+ 
   h1{
     font-size: 25px;
     font-weight: bold;

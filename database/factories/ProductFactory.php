@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'nom' => $this->faker->Lastname(),
             'description' => $this->faker->text($maxNbChars = 200),
             'price' => $this->faker->biasedNumberBetween($min = 10, $max = 20, $function = 'sqrt'),
-            'picture' => $this->faker->image('public/storage/images',511,639, null, false),
+            'picture' => $this->faker->imageUrl($width = 640, $height = 480),
             'category_id' => rand(1,2),
             'state_id' => rand(1,2),
             'state2_id' => rand(1,2),

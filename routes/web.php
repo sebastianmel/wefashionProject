@@ -18,16 +18,19 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Route::get('/', function () {
+
 //     return view('first');
 // });
 Route::get('/', [FirstController::class, 'firstP']);
+
+Auth::routes();
+
 Route::get('/product/category/men', [FirstController::class, 'menCategory'])->name('product.categoryMen');
 Route::get('/product/category/women', [FirstController::class, 'womenCategory'])->name('product.categoryWomen');
 Route::get('/product/onsale', [FirstController::class, 'saleCategory']);
-Route::delete('/admin/{product}', [AdminController::class, 'delete'])->name('product.del');
-Route::delete('/admin/{category}', [AdminController::class, 'deleteCategory'])->name('category.del');
 
-Auth::routes();
+Route::delete('/admin/category/{category}', [AdminController::class, 'deleteCategory'])->name('category.del');
+Route::delete('/admin/product/{product}', [AdminController::class, 'delete'])->name('product.del');
 
 Route::get('/product/{product}', [FirstController::class, 'productDetail'])->name('product.detail');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
