@@ -53,11 +53,7 @@ class AdminController extends Controller
 
     public function create1()
     {
-        
         $categories = Category::all();
-        
-
-
         return view("createCategory", compact("categories"));
     }
     // Edit Function for Product & Category

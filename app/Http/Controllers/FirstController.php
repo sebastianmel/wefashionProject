@@ -32,6 +32,59 @@ class FirstController extends Controller
         $categories = Category::all();
         return view('first', compact('products', 'pictures'));
     }
+   
+    
+    public function productDetail(Product $product )
+    {
+            $id = $product->id;
+        
+        return view('productPage', compact('product','id'));
+    }
+
+    public function womenCategory()
+    {
+       
+        
+        $categories = Category::all();
+        
+
+        $products = Product::where('category_id', 1)
+               ->orderBy("id", "asc")->paginate(6);
+ 
+        return view('categoryFilter', compact('categories','products'));
+              
+
+    }
+    public function menCategory()
+    {
+       
+        $categories = Category::all();
+        
+
+        $products = Product::where('category_id', 2)
+               ->orderBy("id", "asc")->paginate(6) ;             
+               
+ 
+        return view('categoryFilter', compact('categories','products'));
+              
+
+    }
+    public function saleCategory()
+    {
+       
+        $state2 = State2::all();
+        
+
+        $products = Product::where('state2_id', 2)
+               ->orderBy("id", "asc")->paginate(6)          ;     
+               
+ 
+        return view('categoryFilter', compact('products'));
+              
+
+    }
+
+    
 
     
 }

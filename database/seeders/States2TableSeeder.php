@@ -19,7 +19,7 @@ class States2TableSeeder extends Seeder
         //Stats of products
         DB::table('states2')->insert([
             ["libelle"=>"nomal Price"],
-            ["libelle"=>"solde"],
+            ["libelle"=>"on sale"],
         ]);
     }
 }
