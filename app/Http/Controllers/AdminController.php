@@ -99,17 +99,7 @@ class AdminController extends Controller
         
         
         
-        // $product = Product::create([
-            //     "nom"=>$request->nom,
-            //     "description"=>$request->description,
-            //     "price"=>$request->price,
-            //     "state_id"=>$request->state_id,
-            //     "category_id"=>$request->category_id,
-            //     "picture"=>$request->picture,
-            //     "state2_id" => $request->state2_id,
-            //     "alphanum" => substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 6),
-            
-            // ]);
+        
             
             
             Product::create($input);
@@ -118,16 +108,7 @@ class AdminController extends Controller
         
         
         
-        // // dd($request->picture);
-        // Product::create($request->all());
-        // Product::create([
-        //     "nom"=>$request->nom,
-        //     "description"=>$request->description,
-        //     "price"=>$request->price,
-        //     "state_id"=>$request->state_id,
-        //     "category"=>$request->category_id,
-        //     "picture"=>$request->picture,
-        // ]);
+        
     }
 
     public function store1(Request $request)
